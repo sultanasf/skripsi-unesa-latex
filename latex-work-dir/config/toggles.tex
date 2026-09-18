@@ -1,0 +1,11 @@
+% Halaman persembahan tidak wajib menurut template UNESA.
+\newif\ifshowpersembahan
+\showpersembahantrue
+
+% Dibuat `make prepare` berdasarkan keberadaan entri BibTeX nyata.
+\newif\ifshowbibliography
+\IfFileExists{build/bibliography-toggle.tex}{
+  \input{build/bibliography-toggle}
+}{
+  \showbibliographyfalse
+}

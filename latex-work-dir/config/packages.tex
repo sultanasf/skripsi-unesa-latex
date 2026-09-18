@@ -1,0 +1,39 @@
+% XeLaTeX diperlukan untuk memuat Book Antiqua asli dari DOCX sumber.
+\usepackage{fontspec}
+\usepackage[main=indonesian,english]{babel}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tabularray}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage{microtype}
+\usepackage[round,authoryear]{natbib}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+
+\IfFileExists{build/fonts/BookAntiqua-regular.ttf}{
+  \setmainfont[
+    Path=build/fonts/,
+    UprightFont=BookAntiqua-regular.ttf,
+    BoldFont=BookAntiqua-bold.ttf,
+    ItalicFont=BookAntiqua-italic.ttf,
+    BoldItalicFont=BookAntiqua-boldItalic.ttf
+  ]{Book Antiqua}
+}{
+  % Public CI fallback: use TeX distribution default font.
+  % Strict mode supplies Book Antiqua from user-provided DOCX.
+}

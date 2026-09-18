@@ -1,0 +1,23 @@
+name: Format Evidence
+description: Propose format change backed by official UNESA evidence.
+title: "format: "
+labels: [format]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload restricted DOCX, student documents, or personal data.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Official evidence
+      description: Cite public guidance or describe written program/supervisor decision.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Explain affected files, outputs, and open decisions.
+    validations:
+      required: true

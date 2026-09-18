@@ -1,0 +1,44 @@
+name: Public Template CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  fallback-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install TeX and checks
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-xetex texlive-lang-english \
+            texlive-lang-other texlive-latex-extra texlive-fonts-recommended \
+            poppler-utils ripgrep
+
+      - name: Validate shell and JSON
+        run: |
+          sh -n latex-work-dir/scripts/check-workspace.sh
+          python3 -m json.tool .opencode/opencode.json >/dev/null
+
+      - name: Build fallback and check
+        run: make ci
+
+      - name: Scan public source
+        run: |
+          legacy_pattern=$(printf '\120\105\116\123')
+          if rg -n -i "$legacy_pattern|postgresql://|api[_-]?key|password|private[_-]?key" \
+            --glob '!.github/**' --glob '!SECURITY.md' --glob '!docs/PUBLISHING.md' .; then
+            echo 'Forbidden public-source pattern found.'
+            exit 1
+          fi
+          if test -d latex-work-dir/build/fonts && test -n "$(rg --files latex-work-dir/build/fonts)"; then
+            echo 'Build font cache must not exist in CI source checkout.'
+            exit 1
+          fi

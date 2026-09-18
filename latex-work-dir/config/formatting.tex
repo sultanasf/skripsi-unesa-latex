@@ -1,0 +1,256 @@
+%============================================================
+% FORMAT UNESA: hasil kalibrasi TEMPLATE FORMAT *.docx
+% Jangan ubah tanpa panduan kampus baru atau persetujuan pembimbing.
+%============================================================
+
+\geometry{
+  a5paper,
+  twoside,
+  asymmetric,
+  left=2.5cm,
+  right=2cm,
+  top=2.5cm,
+  bottom=2cm,
+  headheight=12pt,
+  headsep=0pt,
+  footskip=0.9cm
+}
+
+\setstretch{1.15}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\definecolor{unesagray}{HTML}{5F5D5D}
+\definecolor{unesagold}{HTML}{E8CE69}
+
+% Judul bab resmi: BAB I lalu nama bab, Book Antiqua 10 pt tebal dan terpusat.
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\titleformat{\chapter}[display]
+  {\centering\bfseries\fontsize{10}{13.8}\selectfont}
+  {BAB \thechapter}
+  {0pt}
+  {}
+\titlespacing*{\chapter}{0pt}{-18pt}{13.8pt}
+
+% Subbagian template memakai A., B., C., dan seterusnya.
+\titleformat{\section}
+  {\bfseries\fontsize{10}{13.8}\selectfont}
+  {\makebox[0.635cm][l]{\thesection.}}
+  {0pt}
+  {}
+\titlespacing*{\section}{0.63cm}{13.8pt}{0pt}
+
+\titleformat{\subsection}
+  {\bfseries\fontsize{10}{13.8}\selectfont}
+  {\thesubsection}
+  {0.45em}
+  {}
+\titlespacing*{\subsection}{1.27cm}{6.9pt}{0pt}
+
+\titleformat{\subsubsection}
+  {\bfseries\fontsize{10}{13.8}\selectfont}
+  {\thesubsubsection}
+  {0.45em}
+  {}
+\titlespacing*{\subsubsection}{1.27cm}{6.9pt}{0pt}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% Nomor tabel, gambar, dan persamaan tetap memakai nomor bab Arab.
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+\captionsetup{
+  font=normalsize,
+  labelfont=normalfont,
+  textfont=normalfont,
+  justification=centering,
+  singlelinecheck=false,
+  labelsep=period,
+  skip=4pt
+}
+\captionsetup[table]{position=above}
+\renewcommand{\figurename}{Gambar}
+\renewcommand{\tablename}{Tabel}
+
+\setlength{\intextsep}{8pt}
+\setlength{\textfloatsep}{8pt}
+\setlength{\floatsep}{8pt}
+
+\SetTblrInner{
+  hlines,
+  vlines,
+  row{1}={font=\bfseries,halign=c,valign=m},
+  rows={valign=m},
+  rowsep=2pt,
+  colsep=3pt
+}
+
+% Nomor halaman di bawah tengah, tanpa header dan garis.
+\fancypagestyle{unesa}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{unesa}
+
+% Halaman kosong saat transisi ke halaman ganjil pada dokumen bolak-balik.
+\makeatletter
+\renewcommand{\cleardoublepage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page\else
+      \hbox{}\vfill
+      \begin{center}(Halaman ini sengaja dikosongkan)\end{center}
+      \vfill
+      \thispagestyle{empty}
+      \newpage
+    \fi
+  \fi
+}
+\makeatother
+
+% Judul dan isi daftar otomatis.
+\renewcommand{\contentsname}{DAFTAR ISI}
+\renewcommand{\listtablename}{DAFTAR TABEL}
+\renewcommand{\listfigurename}{DAFTAR GAMBAR}
+\renewcommand{\bibname}{DAFTAR PUSTAKA}
+
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill\null}
+\renewcommand{\cftlottitlefont}{\hfill\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill\null}
+\renewcommand{\cftloftitlefont}{\hfill\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill\null}
+\setlength{\cftbeforetoctitleskip}{-18pt}
+\setlength{\cftbeforelottitleskip}{-18pt}
+\setlength{\cftbeforeloftitleskip}{-18pt}
+\setlength{\cftaftertoctitleskip}{13.8pt}
+\setlength{\cftafterlottitleskip}{13.8pt}
+\setlength{\cftafterloftitleskip}{13.8pt}
+\renewcommand{\cftdotsep}{1}
+\setlength{\cftbeforechapskip}{0pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\renewcommand{\cftchappresnum}{BAB~}
+\settowidth{\cftchapnumwidth}{BAB~VIII~~}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftfigpresnum}{Gambar~}
+\settowidth{\cftfignumwidth}{Gambar~10.10~~}
+\renewcommand{\cfttabpresnum}{Tabel~}
+\settowidth{\cfttabnumwidth}{Tabel~10.10~~}
+
+\newlistof{lampiran}{loa}{DAFTAR LAMPIRAN}
+\renewcommand{\cftloatitlefont}{\hfill\bfseries}
+\renewcommand{\cftafterloatitle}{\hfill\null}
+\setlength{\cftbeforeloatitleskip}{-18pt}
+\setlength{\cftafterloatitleskip}{13.8pt}
+
+\newcommand{\DaftarIsiUNESA}{%
+  \clearpage\phantomsection
+  \renewcommand{\contentsname}{DAFTAR ISI}%
+  \addcontentsline{toc}{chapter}{DAFTAR ISI}
+  \begingroup\singlespacing\sloppy\tableofcontents\endgroup
+}
+\newcommand{\DaftarTabelUNESA}{%
+  \clearpage\phantomsection
+  \renewcommand{\listtablename}{DAFTAR TABEL}%
+  \addcontentsline{toc}{chapter}{DAFTAR TABEL}
+  \begingroup\singlespacing\listoftables\endgroup
+}
+\newcommand{\DaftarGambarUNESA}{%
+  \clearpage\phantomsection
+  \renewcommand{\listfigurename}{DAFTAR GAMBAR}%
+  \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+  \begingroup\singlespacing\listoffigures\endgroup
+}
+\newcommand{\DaftarLampiranUNESA}{%
+  \clearpage\phantomsection
+  \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
+  \begingroup\singlespacing\listoflampiran\endgroup
+}
+
+\newcommand{\DaftarPustakaUNESA}{%
+  \clearpage\phantomsection
+  \renewcommand{\bibname}{DAFTAR PUSTAKA}%
+  \addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
+  \ifshowbibliography
+    \bibliographystyle{apalike}
+    \bibliography{refs/references}
+  \else
+    \chapter*{DAFTAR PUSTAKA}
+    \noindent [Daftar pustaka belum diisi. Tambahkan hanya sumber yang telah
+    diverifikasi dan benar-benar disitasi dalam naskah.]
+  \fi
+}
+
+\newcommand{\FrontTitle}[2][]{%
+  \clearpage
+  \phantomsection
+  \def\FrontTocTitle{#1}%
+  \ifx\FrontTocTitle\empty
+    \addcontentsline{toc}{chapter}{#2}%
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \begin{center}\bfseries #2\end{center}
+  \vspace{13.8pt}
+}
+
+\newcommand{\IdentityRow}[2]{%
+  \noindent\begin{tabularx}{\textwidth}{@{}p{3.05cm}@{\hspace{0.1cm}:\hspace{0.15cm}}>{\raggedright\arraybackslash}X@{}}
+    #1 & #2
+  \end{tabularx}\par
+}
+
+\newcommand{\AbstractIdentityRow}[2]{%
+  \noindent\begin{tabularx}{\textwidth}{@{}p{3.8cm}@{\hspace{0.1cm}:\hspace{0.15cm}}>{\raggedright\arraybackslash}X@{}}
+    #1 & #2
+  \end{tabularx}\par
+}
+
+\newcommand{\CheckedBox}{$\boxtimes$}
+\newcommand{\EmptyBox}{$\square$}
+
+\newenvironment{kutipanpanjang}{%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1cm}%
+    \setlength{\rightmargin}{1cm}%
+    \setlength{\topsep}{6.9pt}%
+    \setlength{\parsep}{0pt}%
+  }\item\singlespacing\ignorespaces
+}{\end{list}}
+
+\newcommand{\Sumber}[1]{%
+  \par\vspace{2pt}{\raggedright Sumber: #1\par}
+}
+
+\newcommand{\Lampiran}[1]{%
+  \refstepcounter{lampiran}
+  \chapter*{LAMPIRAN \thelampiran\\#1}
+  \phantomsection
+  \addcontentsline{toc}{chapter}{LAMPIRAN \thelampiran. #1}
+  \addcontentsline{loa}{lampiran}{\protect\numberline{\thelampiran}#1}
+}
+
+\hypersetup{
+  pdftitle={\JudulPenelitian},
+  pdfauthor={\NamaMahasiswa},
+  pdfsubject={\JenisDokumenCover\ Universitas Negeri Surabaya},
+  pdfkeywords={\KataKunci}
+}
+\pdfstringdefDisableCommands{\def\\{ }}

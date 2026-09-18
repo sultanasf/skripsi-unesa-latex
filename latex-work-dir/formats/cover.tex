@@ -1,0 +1,38 @@
+\begin{titlepage}
+  \pagecolor{unesagray}
+  \color{white}
+  \thispagestyle{empty}
+  \centering
+
+  {\bfseries\MakeUppercase{\JudulPenelitian}\par}
+  \vspace{0.6cm}
+  {\color{unesagold}\rule{0.78\textwidth}{1.2pt}\par}
+  \vspace{0.45cm}
+  {\bfseries\JenisDokumenCover\par}
+
+  \vfill
+
+  \IfFileExists{build/assets/logo_unesa.png}{
+    \includegraphics[width=4.2cm,trim=46bp 23bp 49bp 48bp,clip]{build/assets/logo_unesa.png}
+  }{
+    \fbox{\parbox[c][2.5cm][c]{2.5cm}{\centering LOGO\\UNESA}}
+  }
+
+  \vfill
+
+  {Oleh:\par}
+  \vspace{0.15cm}
+  {\bfseries\MakeUppercase{\NamaMahasiswa}\par}
+  {NIM \NIM\par}
+
+  \vfill
+
+  {\bfseries
+    UNIVERSITAS NEGERI SURABAYA\par
+    FAKULTAS \MakeUppercase{\NamaFakultas}\par
+    PROGRAM STUDI \MakeUppercase{\NamaProgramStudi}\par
+    \Tahun\par
+  }
+\end{titlepage}
+\nopagecolor
+\color{black}

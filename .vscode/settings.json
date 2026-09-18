@@ -1,0 +1,33 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "prepare UNESA assets",
+      "command": "make",
+      "args": ["-C", "%DIR%", "prepare"]
+    },
+    {
+      "name": "latexmk xelatex",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-outdir=%DIR%/build",
+        "-auxdir=%DIR%/build",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "UNESA: prepare + XeLaTeX",
+      "tools": ["prepare UNESA assets", "latexmk xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.view.pdf.viewer": "tab"
+}

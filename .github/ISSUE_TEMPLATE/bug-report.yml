@@ -1,0 +1,23 @@
+name: Template Bug
+description: Report reproducible template, build, or documentation problem.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include thesis content, NIM, respondent data, private documents, or credentials.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe expected and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Include command, OS, TeX distribution, and safe minimal input.
+    validations:
+      required: true
