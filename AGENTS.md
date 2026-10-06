@@ -50,3 +50,15 @@
 - Skripsi penuh: `latex-work-dir/main_skripsi.tex`.
 - Jangan compile file di `chapters/`, `pages/`, `formats/`, atau `config/`
   secara langsung.
+
+## Platform Adaptation
+
+- Tooling build workspace ini menargetkan POSIX (Linux, macOS, WSL). Pada
+  Windows/macOS, jangan menyatakan workspace rusak ketika `make`, `sh`, atau
+  `unzip` tidak tersedia.
+- Jika OS bukan Linux atau `make`/`sh` tidak tersedia, baca dan ikuti
+  `docs/PLATFORM.md` sebelum membuat perubahan apa pun.
+- Adaptasi hanya boleh menyentuh lapisan orkestrasi. Pipeline
+  `latexmk -xelatex`, entry point, path keluaran, ukuran A5, aturan font/DOCX,
+  dan semantik `check-workspace.sh` bersifat tetap.
+- Jalur Linux wajib tetap hijau (`make ci`).

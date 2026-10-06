@@ -6,6 +6,8 @@
   `latex-work-dir/config/packages.tex`.
 - `make`, `unzip`, `grep`, Ripgrep, Poppler `pdfinfo`/`pdffonts`.
 - VS Code + LaTeX Workshop optional.
+- Windows/macOS: build tooling is POSIX-oriented. See `docs/PLATFORM.md` for
+  the adaptation contract before changing any build or check script.
 
 ## Public/Fallback Build
 
